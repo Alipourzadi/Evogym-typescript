@@ -1,4 +1,3 @@
-import React from "react";
 import Links from "./Links";
 import ActionButton from "@/layout/ActionButton";
 import { SelectedPage } from "@/shared/types";

@@ -1,5 +1,6 @@
 import Navbar from "@/scenes/Navbar";
-import Home from "./scenes/Home/Home";
+import Home from "@/scenes/Home";
+import Benefits from "@/scenes/Benefits";
 import { useEffect, useState } from "react";
 import { SelectedPage } from "./shared/types";
 
@@ -19,7 +20,7 @@ function App() {
     };
     window.addEventListener("scroll", scrollHandler);
     return () => window.removeEventListener("scroll", scrollHandler);
-  }, []);
+  }, [window.scrollY]);
 
   return (
     <>
@@ -33,6 +34,7 @@ function App() {
       <main>
         <Home setSelectedPage={setSelectedPage} />
       </main>
+      <Benefits setSelectedPage={setSelectedPage} />
     </>
   );
 }

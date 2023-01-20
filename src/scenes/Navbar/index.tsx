@@ -23,9 +23,15 @@ const Index: React.FC<Props> = ({
   const isAboveMediumScreen = useMediaQuery("(min-width:1060px)");
   return (
     <nav>
-      <NavbarLayout isScroll={isScroll}>
+      <NavbarLayout isScroll={isScroll} isMenuToggled={menuIsToggled}>
         {/* Left Side */}
-        <img alt="logo" src={Logo} />
+        <img
+          alt="logo"
+          src={Logo}
+          className={`${
+            menuIsToggled ? "opacity-0" : ""
+          } transition-all duration-100`}
+        />
         {/* Right Side */}
         {isAboveMediumScreen ? (
           <NavLinks
@@ -46,23 +52,16 @@ const Index: React.FC<Props> = ({
         )}
       </NavbarLayout>
       {!isAboveMediumScreen && menuIsToggled && (
-        <div className="fixed right-0 bottom-0 z-40  h-full w-[250px] bg-primery-500">
-          <button
-            className={`${
-              menuIsToggled
-                ? "absolute right-[52px] top-6 z-40 rounded-full px-4 py-3"
-                : ""
-            }`}
-            onClick={() => setIsMenuToggled((pervState) => !pervState)}
-          >
-            <MenuButton isMenuToggeld={menuIsToggled} />
-          </button>
+        <div className="fixed right-0 bottom-0 z-40  h-full w-[200px] bg-primery-500">
           {/* Menu Items */}
           <div className="ml-[30%] mt-[50%] flex flex-col gap-10 text-xl">
             <Links
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
+            <div className="mt-16">
+              <img alt="logo" src={Logo} />
+            </div>
           </div>
         </div>
       )}
