@@ -1,18 +1,23 @@
+import { useEffect, useState } from "react";
 import Navbar from "@/scenes/Navbar";
 import Home from "@/scenes/Home";
 import Benefits from "@/scenes/Benefits";
-import { useEffect, useState } from "react";
+import OurClasses from "@/scenes/OurClasses";
+import ContactUs from "@/scenes/ContactUs";
+import Footer from "@/scenes/Footer";
 import { SelectedPage } from "./shared/types";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
     SelectedPage.HOME
   );
-  const [isScroll, setIsScroll] = useState<boolean>(false);
+  const [isScroll, setIsScroll] = useState<boolean>(
+    window.scrollY == 0 ? false : true
+  );
 
   useEffect(() => {
     const scrollHandler = () => {
-      if (window.screenY == 0) {
+      if (window.scrollY == 0) {
         setIsScroll(false);
         setSelectedPage(SelectedPage.HOME);
       }
@@ -35,6 +40,9 @@ function App() {
         <Home setSelectedPage={setSelectedPage} />
       </main>
       <Benefits setSelectedPage={setSelectedPage} />
+      <OurClasses setSelectedPage={setSelectedPage} />
+      <ContactUs setSelectedPage={setSelectedPage} />
+      <Footer />
     </>
   );
 }

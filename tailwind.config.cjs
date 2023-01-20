@@ -35,5 +35,5 @@ module.exports = {
       md: "1060px",
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };

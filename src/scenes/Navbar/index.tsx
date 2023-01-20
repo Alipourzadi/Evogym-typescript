@@ -52,7 +52,7 @@ const Index: React.FC<Props> = ({
         )}
       </NavbarLayout>
       {!isAboveMediumScreen && menuIsToggled && (
-        <div className="fixed right-0 bottom-0 z-40  h-full w-[200px] bg-primery-500">
+        <div className="fixed right-0 bottom-0 z-40  h-full w-[200px] bg-primery-100">
           {/* Menu Items */}
           <div className="ml-[30%] mt-[50%] flex flex-col gap-10 text-xl">
             <Links
